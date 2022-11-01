@@ -1,32 +1,62 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar color="purple darken-2 " app dark>
+      <div id="nav">
+        <!-- <div class="anim">
+          <lottie-player
+            src="https://assets3.lottiefiles.com/packages/lf20_WZ1sT4.json"
+            loop
+            background="transparent"
+            speed="1"
+            style="width: 150px; height: 150px"
+            autoplay
+          ></lottie-player>
+        </div> -->
+        <h2>Crime Reporting Application</h2>
+        <v-spacer></v-spacer>
+        <!-- <div class="logout"><button @click="logout">Logout</button></div> -->
+        <v-btn text class="white--text" type="submit" @click="logout">
+          Log Out
+          <v-icon right dark> mdi-logout-variant </v-icon>
+        </v-btn>
+      </div>
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import firebase from "firebase";
+export default {
+  name: "App",
 
+  data: () => ({
+    //
+  }),
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          alert("Successfully logged out");
+          this.$router.push("/");
+        })
+        .catch((error) => {
+          alert(error.message);
+          this.$router.push("/");
+        });
+    },
+  },
+};
+</script>
+
+<style >
 #nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  display: flex;
+  /* justify-content: flex-end; */
 }
 </style>

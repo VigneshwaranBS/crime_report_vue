@@ -2,7 +2,7 @@
   <div class="main">
     <v-card id="registerCard">
       <div class="form">
-        <h1 class="title">LOG IN</h1>
+        <h1 class="title">Registration</h1>
         <!-- <div class="google">
           <div class="google-button" @click="socialLogin">
             <img
@@ -13,9 +13,9 @@
             />
             <a class="google-word">Continue with Google</a>
           </div>
-        </div> -->
-        <!-- <p>OR</p> -->
-        <form @submit.prevent="login">
+        </div>
+        <p>OR</p> -->
+        <form @submit.prevent="register">
           <div class="inputs">
             <div id="input">
               <v-text-field
@@ -42,20 +42,19 @@
             </div>
           </div>
           <v-btn color="primary" class="white--text" type="submit">
-            Sign In
+            Sign Up
             <v-icon right dark> mdi-arrow-right-circle </v-icon>
           </v-btn>
           <div justify="center">
             <small>
-              Create new account ?
-              <router-link to="/Register">Register</router-link>
+              Have an account? <router-link to="/">Login</router-link>
             </small>
           </div>
         </form>
       </div>
       <div class="card-img">
         <lottie-player
-          src="https://assets5.lottiefiles.com/packages/lf20_dn6rwtwl.json"
+          src="https://assets3.lottiefiles.com/packages/lf20_jcikwtux.json"
           loop
           background="transparent"
           speed="1"
@@ -78,13 +77,12 @@ export default {
   },
 
   methods: {
-    login() {
+    register() {
       firebase
         .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
+        .createUserWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          alert("Successfully logged in");
-          this.$router.push("/dashboard");
+          this.$router.push("/");
         })
         .catch((error) => {
           alert(error.message);
@@ -95,7 +93,6 @@ export default {
       firebase
         .auth()
         .signInWithPopup(provider)
-
         .then((result) => {
           var token = result.credential.accessToken;
           console.log(token);
@@ -160,34 +157,6 @@ export default {
 }
 v-btn {
   background-color: green;
-}
-.google {
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-}
-.google-button {
-  height: 30px;
-  flex-wrap: wrap;
-  border-radius: 5px;
-  background-color: #eee;
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 10px;
-  width: 207px;
-}
-.google-icon {
-  width: 20px;
-  height: 20px;
-  border-radius: 30px;
-  margin-top: 5px;
-}
-.google-word {
-  margin-left: 12px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #000;
-  margin-top: 6px;
 }
 @media (max-width: 780px) {
   .main {
