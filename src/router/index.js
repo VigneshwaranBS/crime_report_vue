@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Register from "../views/Register.vue";
 import Dashboard from "../views/Dashboard.vue";
+import adminpage from "../views/adminPage.vue";
 import firebase from "firebase";
 
 Vue.use(VueRouter);
@@ -25,6 +26,12 @@ const routes = [
     meta: {
       authRequired: true,
     },
+  },
+  {
+    path: "/adminpage",
+    name: "adminpage",
+    component: adminpage,
+   
   },
 ];
 

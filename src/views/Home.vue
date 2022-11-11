@@ -84,7 +84,7 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
           alert("Successfully logged in");
-          this.$router.push("/dashboard");
+          this.$router.push("/adminPage");
         })
         .catch((error) => {
           alert(error.message);
@@ -99,7 +99,7 @@ export default {
         .then((result) => {
           var token = result.credential.accessToken;
           console.log(token);
-          this.$router.push("/dashboard");
+          this.$router.push("/adminPage");
         })
         .catch((err) => {
           alert("Oops. " + err.message);
