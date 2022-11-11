@@ -3,7 +3,7 @@
     <v-card id="registerCard">
       <div class="form">
         <h1 class="title">LOG IN</h1>
-        <!-- <div class="google">
+        <div class="google">
           <div class="google-button" @click="socialLogin">
             <img
               class="google-icon"
@@ -13,8 +13,8 @@
             />
             <a class="google-word">Continue with Google</a>
           </div>
-        </div> -->
-        <!-- <p>OR</p> -->
+        </div>
+        <p>OR</p>
         <form @submit.prevent="login">
           <div class="inputs">
             <div id="input">
@@ -55,7 +55,7 @@
       </div>
       <div class="card-img">
         <lottie-player
-          src="https://assets5.lottiefiles.com/packages/lf20_dn6rwtwl.json"
+          src="https://assets9.lottiefiles.com/temp/lf20_lruRTf.json"
           loop
           background="transparent"
           speed="1"
@@ -90,6 +90,8 @@ export default {
           alert(error.message);
         });
     },
+
+    
     socialLogin() {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase
@@ -147,11 +149,13 @@ export default {
 
 .card-img {
   border-radius: 18px;
-  background: -webkit-linear-gradient(
-    45deg,
-    rgb(255, 116, 116),
-    rgb(221, 68, 221)
-  );
+  background: hsla(196, 93%, 71%, 1);
+
+background: linear-gradient(90deg, hsla(196, 93%, 71%, 1) 0%, hsla(199, 58%, 80%, 1) 49%, hsla(183, 71%, 88%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(196, 93%, 71%, 1) 0%, hsla(199, 58%, 80%, 1) 49%, hsla(183, 71%, 88%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(196, 93%, 71%, 1) 0%, hsla(199, 58%, 80%, 1) 49%, hsla(183, 71%, 88%, 1) 100%);
   width: 50%;
   height: 80vh;
   display: flex;

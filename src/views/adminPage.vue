@@ -1,7 +1,15 @@
 <template>
 
   <main>
+    <div class="heading">
     <h2>Admin Portal</h2>
+    <v-spacer></v-spacer>
+    <v-btn class=" text--white" >
+    <router-link to="/dashboard">Go to Officer Portal</router-link>
+
+  </v-btn>
+  </div>
+
   <v-data-table :headers="headers" :items="studentTable"   class="elevation-1 rounded-lg">
   </v-data-table>
 </main>
@@ -105,6 +113,13 @@ import { addDatas } from "../service";
 
 main{
   margin: 25px;
+}
+.v-data-table{
+  margin-top: 15px;
+}
+.heading{
+  display: flex;
+  
 }
   
 </style>

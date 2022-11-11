@@ -1,15 +1,15 @@
 <template>
   <main>
 
-    <div class="personal-data-table">
-        <h2>Personal Details</h2>
+    <!-- <div class="personal-data-table">
+     <h2>Personal Details</h2>
     <v-data-table
     :headers="pdetails"
     :items="pcont"
     :items-per-page="5"
     class="elevation-1"
   ></v-data-table>
-    </div>
+    </div> -->
 
     <div class="crime-data-table">
         <h2>Crime Data Details</h2>
@@ -24,125 +24,85 @@
 </template>
 
 <script>
+import { addDatas } from "../service";
+ 
   export default {
-    data () {
-      return {
+    data: () => ({
+     
+      pdetails: [
+          {
+            text: 'Sn No',
+            align: 'start',
+            sortable: false,
+            value: 'sno',
+          },
+          { text: 'First Name', value: 'firstname' },
+          { text: 'Last Name', value: 'lastname' },
+          { text: 'Aadhar No', value: 'aadharno' },
+          { text: 'Address', value: 'address' },
+        ],
         headers: [
           {
             text: 'Sn No',
             align: 'start',
             sortable: false,
-            value: 'snno',
+            value: 'sno',
           },
           { text: 'Crime Place', value: 'crimeplace' },
           { text: 'Crime Type', value: 'crimetype' },
           { text: 'Crime Time', value: 'crimetime' },
-          { text: 'Crime Evidance', value: 'crimeevi' },
+          { text: 'Crime Evidance', value: 'crimeevidance' },
         ],
-        desserts: [
-          {
-            snno: '01',
-            crimeplace: "Salem",
-            crimetype: "murder",
-            crimetime: "6.00am",
-            crimeevi: "eye witness",
-          },
-          {
-            snno: '02',
-            crimeplace: "Salem",
-            crimetype: "murder",
-            crimetime: "6.00am",
-            crimeevi: "eye witness",
-          },
-          {
-            snno: '03',
-            crimeplace: "Salem",
-            crimetype: "murder",
-            crimetime: "6.00am",
-            crimeevi: "eye witness",
-          },
-          {
-            snno: '04',
-            crimeplace: "Salem",
-            crimetype: "murder",
-            crimetime: "6.00am",
-            crimeevi: "eye witness",
-          },
-          {
-            snno: '05',
-            crimeplace: "Salem",
-            crimetype: "murder",
-            crimetime: "6.00am",
-            crimeevi: "eye witness",
-          },
-          
-         
-          
-        ],
-        pdetails: [
-          {
-            text: 'Sn No',
-            align: 'start',
-            sortable: false,
-            value: 'snno',
-          },
-          { text: 'First Name', value: 'fname' },
-          { text: 'Last Name', value: 'lname' },
-          { text: 'Aadhar No', value: 'aadharno' },
-          { text: 'Address', value: 'address' },
-        ],
-        pcont: [
-          {
-            snno: '01',
-            fname: "vicky",
-            lname: "vignesh",
-            aadharno: 123456789012,
-            address: "salem-tamilnadu",
-          },
-          {
-            snno: '02',
-            fname: "vicky",
-            lname: "vignesh",
-            aadharno: 123456789012,
-            address: "salem-tamilnadu",
-          },
-          {
-            snno: '03',
-            fname: "vicky",
-            lname: "vignesh",
-            aadharno: 123456789012,
-            address: "salem-tamilnadu",
-          },
-          {
-            snno: '04',
-            fname: "vicky",
-            lname: "vignesh",
-            aadharno: 123456789012,
-            address: "salem-tamilnadu",
-          },
-          
-          {
-            snno: '05',
-            fname: "vicky",
-            lname: "vignesh",
-            aadharno: 123456789012,
-            address: "salem-tamilnadu",
-          },
-          
-          
-          
-        ],
-      }
+      pcont: [],
+      desserts:[],
+
+      firstname:null,
+      lastname:null,
+      aadharno:null,
+      address:null,
+      crimeplace:null,
+      crimetype:null,
+      crimetime:null,
+      crimeevidance:null,
+    }),
+    created() {
+      this.initialize()
+    },
+    computed: {
+      studentTable() {
+      return this.studentTable.map((d, index) => ({ ...d, sno: index + 1 }))
+    }
+    },
+    
+    methods: {
+      async initialize() {
+         this.pcont = await addDatas.get();
+         this.desserts= await addDatas.get();
+
+        // this.studentTable = [{
+        //     firstname: "Webi",
+        //     lastname:"EAFA65",
+        //     aadharno: "2022",
+        //     address: "20/01/2023",
+        //     crimeplace: "svfsd",
+        //     crimetime: "10/10/2022",
+        //     crimeevidance: "15/12/2022",
+        //     crimetype:"csd",
+        //   },
+        // ]
+      },
+     
+
+
+
+
+
     },
   }
 </script>
 
 <style scoped>
 main{
-    display: flex;
-    margin: 100px;
-}
-.crime-data-table{
-    margin-left: 15px;
+    margin: 20px;
 }
 </style>

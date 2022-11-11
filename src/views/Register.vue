@@ -3,7 +3,7 @@
     <v-card id="registerCard">
       <div class="form">
         <h1 class="title">Registration</h1>
-        <!-- <div class="google">
+        <div class="google">
           <div class="google-button" @click="socialLogin">
             <img
               class="google-icon"
@@ -14,7 +14,7 @@
             <a class="google-word">Continue with Google</a>
           </div>
         </div>
-        <p>OR</p> -->
+        <p>OR</p>
         <form @submit.prevent="register">
           <div class="inputs">
             <div id="input">
@@ -54,7 +54,7 @@
       </div>
       <div class="card-img">
         <lottie-player
-          src="https://assets3.lottiefiles.com/packages/lf20_jcikwtux.json"
+          src="https://assets4.lottiefiles.com/packages/lf20_jcikwtux.json"
           loop
           background="transparent"
           speed="1"
@@ -144,11 +144,13 @@ export default {
 
 .card-img {
   border-radius: 18px;
-  background: -webkit-linear-gradient(
-    45deg,
-    rgb(255, 116, 116),
-    rgb(221, 68, 221)
-  );
+  background: hsla(196, 93%, 71%, 1);
+
+background: linear-gradient(90deg, hsla(196, 93%, 71%, 1) 0%, hsla(199, 58%, 80%, 1) 49%, hsla(183, 71%, 88%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(196, 93%, 71%, 1) 0%, hsla(199, 58%, 80%, 1) 49%, hsla(183, 71%, 88%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(196, 93%, 71%, 1) 0%, hsla(199, 58%, 80%, 1) 49%, hsla(183, 71%, 88%, 1) 100%);
   width: 50%;
   height: 80vh;
   display: flex;
