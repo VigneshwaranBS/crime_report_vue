@@ -3,7 +3,7 @@
     <v-card id="registerCard">
       <div class="form">
         <h1 class="title">LOG IN</h1>
-        <div class="google">
+        <!-- <div class="google">
           <div class="google-button" @click="socialLogin">
             <img
               class="google-icon"
@@ -14,7 +14,7 @@
             <a class="google-word">Continue with Google</a>
           </div>
         </div>
-        <p>OR</p>
+        <p>OR</p> -->
         <form @submit.prevent="login">
           <div class="inputs">
             <div id="input">

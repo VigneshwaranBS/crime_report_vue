@@ -5,7 +5,7 @@
     <h2>Admin Portal</h2>
     <v-spacer></v-spacer>
     <v-btn class=" text--white" >
-    <router-link to="/dashboard">Go to Officer Portal</router-link>
+    <router-link to="/officerpanel">Go to Officer Portal</router-link>
 
   </v-btn>
   </div>
