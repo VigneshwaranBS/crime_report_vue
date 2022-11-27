@@ -2,7 +2,7 @@
   <div class="main">
     <v-card id="registerCard">
       <div class="form">
-        <h1 class="title">Registration</h1>
+        <h1 class="title">REGISTRATION</h1>
         <!-- <div class="google">
           <div class="google-button" @click="socialLogin">
             <img
@@ -19,6 +19,64 @@
           <div class="inputs">
             <div id="input">
               <v-text-field
+                label="Name"
+                v-model="name"
+                type="text"
+                outlined
+                required
+                dense
+                class="mb-n3"
+              ></v-text-field>
+            </div>
+            <div id="input">
+              <v-text-field
+                label="Phone Number"
+                v-model="phnnum"
+                type="number"
+                outlined
+                required
+                dense
+                class="mb-n3"
+              ></v-text-field>
+            </div>
+            <div id="input">
+              <v-text-field
+                label="Employee ID"
+                v-model="empid"
+                type="text"
+                outlined
+                required
+                dense
+                class="mb-n3"
+              ></v-text-field>
+            </div>
+            <div id="input">
+              <v-text-field
+                label="Station ID"
+                v-model="stationid"
+                type="text"
+                outlined
+                required
+                dense
+                class="mb-n3"
+              ></v-text-field>
+            </div>
+            <div id="input">
+              <v-textarea
+                label="Address"
+                v-model="address"
+                type="text"
+                outlined
+                required
+                dense
+                class="mb-n3"
+                auto-grow
+                rows="1"
+                row-height="15"
+              ></v-textarea>
+            </div>
+            <div id="input">
+              <v-text-field
                 label="Email"
                 v-model="email"
                 type="Email"
@@ -33,7 +91,9 @@
               <v-text-field
                 label="Password"
                 v-model="password"
-                type="Password"
+                :type="show2 ? 'text' : 'password'"
+                :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append="show2 = !show2"
                 outlined
                 dense
                 class="mb-n3"
@@ -68,16 +128,27 @@
 
 <script>
 import firebase from "firebase";
+import {addDatas} from "../service"
+
 export default {
   data() {
     return {
       email: "",
       password: "",
+      show2:false,
+
+      // DETAILS
+      name:null,
+      phnnum:null,
+      stationid:null,
+      address:null,
+      empid:null,
+      
     };
   },
 
   methods: {
-    register() {
+   async register() {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
@@ -87,22 +158,40 @@ export default {
         .catch((error) => {
           alert(error.message);
         });
+
+        //
+        console.log("details added");
+        const datas = {
+          name: this.name,
+          phnnum: this.phnnum,
+          stationid: this.stationid,
+          emp:this.empid,
+          address: this.address,
+          email:this.email,
+
+        };
+        console.log("data added", datas);
+
+      await addDatas.addData(datas);
+        
     },
-    socialLogin() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-          var token = result.credential.accessToken;
-          console.log(token);
-          this.$router.push("/dashboard");
-        })
-        .catch((err) => {
-          alert("Oops. " + err.message);
-        });
-    },
-  },
+
+
+  //
+  // async submit() {
+  //     console.log("details added");
+  //       const datas = {
+  //         name: this.name,
+  //         phnnum: this.phnnum,
+  //         stationid: this.stationid,
+  //         address: this.address,
+
+  //       };
+  //       console.log("data added", datas);
+
+  //     await addDatas.addData(datas);
+  //   },
+  }
 };
 </script>
 

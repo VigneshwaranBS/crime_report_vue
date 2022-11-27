@@ -7,7 +7,7 @@ export const addDatas = {
   
   async function addData(datas) {
     await db
-      .collection("details")
+      .collection("registerdetail")
       .add(datas)
       .then((data) => {
         console.log(data);

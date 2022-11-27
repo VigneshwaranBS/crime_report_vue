@@ -33,7 +33,9 @@
               <v-text-field
                 label="Password"
                 v-model="password"
-                type="Password"
+                :type="show2 ? 'text' : 'password'"
+                :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append="show2 = !show2"
                 outlined
                 dense
                 class="mb-n3"
@@ -74,6 +76,7 @@ export default {
     return {
       email: "",
       password: "",
+      show2:false,
     };
   },
 
@@ -83,8 +86,17 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          alert("Successfully logged in");
-          this.$router.push("/adminPage");
+          prompt("Successfully logged in");
+          let user = firebase.auth().currentUser;
+          let uid= user.uid;
+          if (uid== "visDTsf1VgWHnnRwDDCP6FFvgxk1") {
+            // User is signed in.
+            this.$router.push("/adminPage")
+            console.log(user);
+          } else {
+            // No user is signed in.
+            this.$router.push("/officerpanel")
+          }
         })
         .catch((error) => {
           alert(error.message);
