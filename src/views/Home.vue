@@ -86,7 +86,7 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          prompt("Successfully logged in");
+          alert("Successfully logged in");
           let user = firebase.auth().currentUser;
           let uid= user.uid;
           if (uid== "visDTsf1VgWHnnRwDDCP6FFvgxk1") {
