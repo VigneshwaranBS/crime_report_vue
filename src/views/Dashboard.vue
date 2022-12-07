@@ -1,6 +1,5 @@
 <template>
   <main>
-
     <!-- <div class="personal-data-table">
      <h2>Personal Details</h2>
     <v-data-table
@@ -10,7 +9,6 @@
     class="elevation-1"
   ></v-data-table>
     </div> -->
-
     <div class="crime-data-table">
         <h2>Crime Data Details</h2>
     <v-data-table
@@ -25,10 +23,8 @@
 
 <script>
 import { addDatas } from "../service";
- 
   export default {
     data: () => ({
-     
       pdetails: [
           {
             text: 'Sn No',
