@@ -1,7 +1,9 @@
 <template>
   <div class="main">
     <v-card id="registerCard">
+    
       <div class="form">
+        <h2 >JUSTICE</h2>
         <h1 class="title">REGISTRATION</h1>
         <!-- <div class="google">
           <div class="google-button" @click="socialLogin">

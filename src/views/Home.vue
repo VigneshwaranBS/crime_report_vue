@@ -2,6 +2,7 @@
   <div class="main">
     <v-card id="registerCard">
       <div class="form">
+        <h1 class="pb-12">JUSTICE</h1>
         <h1 class="title">LOG IN</h1>
         <!-- <div class="google">
           <div class="google-button" @click="socialLogin">
