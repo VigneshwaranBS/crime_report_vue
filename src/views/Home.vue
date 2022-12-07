@@ -2,8 +2,9 @@
   <div class="main">
     <v-card id="registerCard">
       <div class="form">
+        <h1 class="pb-12">JUSTICE</h1>
         <h1 class="title">LOG IN</h1>
-        <div class="google">
+        <!-- <div class="google">
           <div class="google-button" @click="socialLogin">
             <img
               class="google-icon"
@@ -14,7 +15,7 @@
             <a class="google-word">Continue with Google</a>
           </div>
         </div>
-        <p>OR</p>
+        <p>OR</p> -->
         <form @submit.prevent="login">
           <div class="inputs">
             <div id="input">
@@ -33,7 +34,9 @@
               <v-text-field
                 label="Password"
                 v-model="password"
-                type="Password"
+                :type="show2 ? 'text' : 'password'"
+                :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append="show2 = !show2"
                 outlined
                 dense
                 class="mb-n3"
@@ -74,6 +77,7 @@ export default {
     return {
       email: "",
       password: "",
+      show2:false,
     };
   },
 
@@ -84,7 +88,16 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
           alert("Successfully logged in");
-          this.$router.push("/adminPage");
+          let user = firebase.auth().currentUser;
+          let uid= user.uid;
+          if (uid== "visDTsf1VgWHnnRwDDCP6FFvgxk1") {
+            // User is signed in.
+            this.$router.push("/adminPage")
+            console.log(user);
+          } else {
+            // No user is signed in.
+            this.$router.push("/officerpanel")
+          }
         })
         .catch((error) => {
           alert(error.message);

@@ -20,7 +20,7 @@ const routes = [
     component: Register,
   },
   {
-    path: "/dashboard",
+    path: "/officerpanel",
     name: "Dashboard",
     component: Dashboard,
     // meta: {

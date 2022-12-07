@@ -102,7 +102,9 @@ import { addDatas } from "../service";
 </script>
 
 <style scoped>
+
 main{
     margin: 20px;
+    
 }
 </style>

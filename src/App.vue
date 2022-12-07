@@ -5,7 +5,7 @@
       color="primary"
       dark
     >
-      <v-toolbar-title>Crime Reporting Portal</v-toolbar-title>
+      <v-toolbar-title>JUSTICE</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text type="submit" @click="logout">
           Log Out
@@ -46,6 +46,7 @@
 </script>
 
 <style>
+
  .v-main{
   margin-top: 65px;
  }
