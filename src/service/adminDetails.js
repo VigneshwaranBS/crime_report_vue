@@ -3,6 +3,7 @@ import { db } from "../firebase";
 export const addDatas = {
     addData,
     get,
+    getdet,
   };
   
   async function addData(datas) {
@@ -36,3 +37,19 @@ export const addDatas = {
     return datas;
   }
 
+  async function getdet() {
+    let datas = [];
+    let sno = 1;
+    await db
+      .collection("registerdetail")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          let user = doc.data();
+          user.docId = doc.id;
+          user.sno = sno++;
+          datas.push(user);
+        });
+      });
+    return datas;
+  }

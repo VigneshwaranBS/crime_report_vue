@@ -4,6 +4,10 @@ import Home from "../views/Home.vue";
 import Register from "../views/Register.vue";
 import Dashboard from "../views/Dashboard.vue";
 import adminpage from "../views/adminPage.vue";
+import userdetails from "../views/userDet.vue";
+
+import userlist from "../views/userList.vue";
+
 import firebase from "firebase";
 
 Vue.use(VueRouter);
@@ -31,6 +35,18 @@ const routes = [
     path: "/adminpage",
     name: "adminpage",
     component: adminpage,
+   
+  },
+  {
+    path: "/userdetail",
+    name: "userdetail",
+    component: userdetails,
+   
+  },
+  {
+    path: "/userlist",
+    name: "userlist",
+    component: userlist,
    
   },
 ];

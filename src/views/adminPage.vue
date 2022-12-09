@@ -8,6 +8,10 @@
     <router-link to="/officerpanel">Go to Officer Portal</router-link>
 
   </v-btn>
+  <v-btn class=" text--white" >
+    <router-link to="/userdetail">User Details</router-link>
+
+  </v-btn>
   </div>
 
   <v-data-table :headers="headers" :items="studentTable"   class="elevation-1 rounded-lg">
