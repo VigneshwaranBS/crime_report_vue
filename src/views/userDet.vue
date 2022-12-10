@@ -23,6 +23,8 @@
      offset-y>
         <template v-slot:activator="{ attrs, on }">
         <v-btn
+        :key="text"
+      :rounded="rounded"
           color="primary"
           dark
           v-bind="attrs"
@@ -56,19 +58,7 @@ import { addDatas } from "../service";
         { title: 'Admin' },
         { title: 'Officer' },
       ],
-      pdetails: [
-          {
-            text: 'Sn No',
-            align: 'start',
-            sortable: false,
-            value: 'sno',
-          },
-          { text: 'First Name', value: 'firstname' },
-          { text: 'Last Name', value: 'lastname' },
-          { text: 'Aadhar No', value: 'aadharno' },
-          { text: 'Address', value: 'address' },
-          { text: 'Actions', value: 'actions', sortable: false },
-        ],
+      
         headers: [
           {
             text: 'Sn No',
@@ -84,7 +74,6 @@ import { addDatas } from "../service";
           { text: 'Position', value: 'actions', sortable: false },
 
         ],
-      pcont: [],
       desserts:[],
 
       email:null,
@@ -105,7 +94,6 @@ import { addDatas } from "../service";
     
     methods: {
       async initialize() {
-         this.pcont = await addDatas.getdet();
          this.desserts= await addDatas.getdet();
 
         // this.studentTable = [{

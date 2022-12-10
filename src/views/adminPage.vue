@@ -4,12 +4,13 @@
     <div class="heading">
     <h2>Admin Portal</h2>
     <v-spacer></v-spacer>
-    <v-btn class=" text--white" >
-    <router-link to="/officerpanel">Go to Officer Portal</router-link>
+   
+  <v-btn class=" text--white mr-2" >
+    <router-link to="/userdetail">User Details</router-link>
 
   </v-btn>
   <v-btn class=" text--white" >
-    <router-link to="/userdetail">User Details</router-link>
+    <router-link to="/officerpanel"> Officer Portal</router-link>
 
   </v-btn>
   </div>

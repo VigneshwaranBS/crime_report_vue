@@ -27,20 +27,26 @@ const routes = [
     path: "/officerpanel",
     name: "Dashboard",
     component: Dashboard,
-    // meta: {
-    //   authRequired: true,
-    // },
+    meta: {
+      authRequired: true,
+    },
   },
   {
     path: "/adminpage",
     name: "adminpage",
     component: adminpage,
+    meta: {
+      authRequired: true,
+    },
    
   },
   {
     path: "/userdetail",
     name: "userdetail",
     component: userdetails,
+    meta: {
+      authRequired: true,
+    },
    
   },
   {
